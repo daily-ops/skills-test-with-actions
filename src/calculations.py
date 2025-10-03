@@ -13,7 +13,7 @@ def area_of_circle(radius):
 
 
 def get_nth_fibonacci(n):
-    """Calculate the nth Fibonacci number."""
+    """Calculate the nth Fibonacci number.."""
     if n < 0:
         raise ValueError("n cannot be negative")
     elif n == 0:
