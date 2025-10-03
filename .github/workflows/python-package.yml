@@ -43,5 +43,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: app tar file
-        path: app.tar.gz
+        path: ${{ matrix.python-version }}/app.tar.gz
         retention-days: 5
