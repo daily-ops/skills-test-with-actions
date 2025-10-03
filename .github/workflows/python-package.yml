@@ -36,3 +36,12 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --verbose
+    - name: Tar
+      run: |
+        tar -zcvf app.tar.gz src/*
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: app tar file
+        path: ${{ matrix.python-version }}/app.tar.gz
+        retention-days: 5
