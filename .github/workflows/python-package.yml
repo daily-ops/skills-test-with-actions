@@ -37,9 +37,12 @@ jobs:
       run: |
         pytest --verbose
 
-    - name: Label when approved
-      uses: pullreminders/label-when-approved-action@main
-      env:
-        APPROVALS: "1"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: "approved"
+    - name: Label when approved by commiters
+      uses: TobKed/label-when-approved-action@v1.2
+      id: label-when-approved-by-commiters
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        label: 'ready to merge (committers)'
+        require_committers_approval: 'true'
+        remove_label_when_approval_missing: 'false'
+        comment: 'PR approved by at least one committer and no changes requested.'
